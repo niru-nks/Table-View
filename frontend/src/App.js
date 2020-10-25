@@ -48,13 +48,13 @@ class App extends React.Component {
     let tableData = <table>
       <tr>
         {
-          this.state.headerNames.map(e => <th>{e}</th>)
+          this.state.headerNames.map(e => <th key={e}>{e}</th>)
         }
       </tr>
       {
         data.map(contact => {
-          return <tr>
-            {this.state.keyNames.map(key => <td>{contact[key]}</td>)}
+          return <tr key={contact.contact_id}>
+            {this.state.keyNames.map(key => <td key={key}>{contact[key]}</td>)}
           </tr>
         })
       }
@@ -63,7 +63,7 @@ class App extends React.Component {
       tableData
     })
   }
-  
+
   render() {
     return (
       <div className='App' >
